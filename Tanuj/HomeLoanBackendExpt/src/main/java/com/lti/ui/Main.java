@@ -13,7 +13,7 @@ public class Main {
 		EntityManager entityManager = factory.createEntityManager();
 		
 		RegistrationDetails registrationDetails1 = new RegistrationDetails();
-		registrationDetails1.setEmailId("tans.c2@gmail.com");
+		registrationDetails1.setEmailId("just@gmail.com");
 		registrationDetails1.setFirstName("Tanuj");
 		registrationDetails1.setLastName("Chakraborty");
 		registrationDetails1.setGender("Male");

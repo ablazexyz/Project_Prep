@@ -32,7 +32,7 @@ public class CustomerDetails {
 	@Column(name = "EMPLOYER_NAME")
 	private String employerName;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "customerDetails", cascade = CascadeType.ALL)
 	private RegistrationDetails registrationDetails;
 	
 	

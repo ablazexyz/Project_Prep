@@ -13,7 +13,10 @@ public class Main2 {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPA-PU");
 		EntityManager entityManager = factory.createEntityManager();
 		
-		RegistrationDetails registrationDetails = entityManager.find(RegistrationDetails.class, "tans.c2@gmail.com");
+		RegistrationDetails registrationDetails = entityManager.find(RegistrationDetails.class, "just@gmail.com");
+		
+		System.out.println(registrationDetails.getEmailId());
+		System.out.println(registrationDetails.getFirstName());
 		CustomerDetails customerDetails = new CustomerDetails();
 		customerDetails.setAadhaarNumber(1234);
 		customerDetails.setEmployerName("LTI");
@@ -21,9 +24,11 @@ public class Main2 {
 		customerDetails.setPAN(3456);
 		customerDetails.setRetirementAge(60);
 		
-		customerDetails.setRegistrationDetails(registrationDetails);
+		//customerDetails.setRegistrationDetails(registrationDetails);
+		
+		registrationDetails.setCustomerDetails(customerDetails);
 		entityManager.getTransaction().begin();
-		entityManager.persist(customerDetails);
+		entityManager.merge(registrationDetails);
 		entityManager.getTransaction().commit();
 	}
 

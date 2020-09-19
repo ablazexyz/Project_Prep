@@ -33,7 +33,10 @@ public class RegistrationDetails {
 	@Column(name = "NATIONALITY")
 	private String nationality;
 	
-	@OneToOne(mappedBy = "registrationDetails",cascade = CascadeType.ALL)
+//	@Column(name = "customer_id")
+//	private int customerId;
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "customer_id")
 	private CustomerDetails customerDetails;
 	
