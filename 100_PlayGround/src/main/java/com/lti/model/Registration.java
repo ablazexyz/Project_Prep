@@ -2,10 +2,9 @@ package com.lti.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -27,7 +26,7 @@ public class Registration implements Serializable{
 		super();
 	}
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "customer_id")
 	private Customer_Details cdetails;
 
@@ -83,13 +82,11 @@ public class Registration implements Serializable{
 		this.cdetails = cdetails;
 	}
 	
-	
 
-	
 	
 	@Override
 	public String toString() {
-		return "Registration [emailId=" + emailId + ", cname=" + cname + ", cpass=" + cpass + ", cnumber=" + cnumber;
+		return "Registration [emailId=" + emailId + ", cname=" + cname + ", cpass=" + cpass + ", cnumber=" + cnumber+" ]";
 	}
 
 

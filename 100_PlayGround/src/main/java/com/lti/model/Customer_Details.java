@@ -1,16 +1,17 @@
 package com.lti.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "CUSTOMER_TBL")
@@ -22,6 +23,20 @@ public class Customer_Details implements Serializable{
 	private int customer_id;
 	
 	private int c_aadhar,c_sal;
+	
+	@OneToOne(mappedBy = "cdetails", cascade = CascadeType.ALL)
+	private Registration registration;
+	
+	@OneToMany(mappedBy = "cdetails2", cascade = CascadeType.ALL)
+	private Set<Application> applications;
+	
+	@OneToOne(mappedBy = "cdetails3", cascade = CascadeType.ALL)
+	private Account account;
+	
+	public void addApplications(Application appl) {
+		
+		applications.add(appl);
+	}
 	
 	public Customer_Details() {
 		super();
@@ -56,11 +71,21 @@ public class Customer_Details implements Serializable{
 	public void setC_sal(int c_sal) {
 		this.c_sal = c_sal;
 	}
+	
+	public Set<Application> getApplications() {
+		return applications;
+	}
+
+	public void setApplications(Set<Application> applications) {
+		this.applications = applications;
+	}
 
 	@Override
 	public String toString() {
 		return "Customer_Details [customer_id=" + customer_id + ", c_aadhar=" + c_aadhar + ", c_sal=" + c_sal + "]";
 	}
+
+	
 	
 	
 	
