@@ -47,6 +47,14 @@ public class Loan {
 	public void setLoanId(int loanId) {
 		LoanId = loanId;
 	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 	
 	
 }
