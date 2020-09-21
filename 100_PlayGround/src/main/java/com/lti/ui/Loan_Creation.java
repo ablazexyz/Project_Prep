@@ -43,8 +43,6 @@ public class Loan_Creation {
 		entityManager.persist(l5);
 		entityManager.getTransaction().commit();
 		
-		
-		System.out.println(l1.getApplication().getLoanAmt());
 	}
 
 }

@@ -43,6 +43,8 @@ public class Account_Creation {
 			balance += (loan2.getApplication().getLoanAmt());
 			ac1.setBalance(balance);
 			loan2.setAccount(ac1);
+			
+			
 			entityManager.getTransaction().begin();
 			entityManager.merge(loan2);
 			entityManager.getTransaction().commit();
