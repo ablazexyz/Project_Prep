@@ -1,5 +1,6 @@
 package com.lti.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,6 +25,9 @@ public class Application {
 	@ManyToOne
 	@JoinColumn(name = "Customer_ID")
 	private Customer_Details cdetails2;
+	
+	@OneToOne(mappedBy = "application", cascade = CascadeType.ALL)
+	private Loan loan;
 	
 	public Application() {
 		super();

@@ -20,11 +20,11 @@ public class Loan {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int LoanId;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "Application_Id")
 	private Application application;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "Account_No")
 	private Account account;
 	
@@ -46,6 +46,14 @@ public class Loan {
 
 	public void setLoanId(int loanId) {
 		LoanId = loanId;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 	
 	

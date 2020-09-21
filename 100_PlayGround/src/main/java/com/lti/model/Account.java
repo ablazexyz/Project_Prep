@@ -26,12 +26,9 @@ public class Account {
 	
 	private int cust_id;
 	
-	@OneToMany(mappedBy = "account" , cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "account" , cascade = CascadeType.PERSIST)
 	private Set<Loan> loans;
 	
-	@OneToOne
-	@JoinColumn(name = "customer_id")
-	private Customer_Details cdetails3;
 
 	public Account() {
 		super();

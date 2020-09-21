@@ -29,9 +29,7 @@ public class Customer_Details implements Serializable{
 	
 	@OneToMany(mappedBy = "cdetails2", cascade = CascadeType.ALL)
 	private Set<Application> applications;
-	
-	@OneToOne(mappedBy = "cdetails3", cascade = CascadeType.ALL)
-	private Account account;
+
 	
 	public void addApplications(Application appl) {
 		
@@ -83,6 +81,14 @@ public class Customer_Details implements Serializable{
 	@Override
 	public String toString() {
 		return "Customer_Details [customer_id=" + customer_id + ", c_aadhar=" + c_aadhar + ", c_sal=" + c_sal + "]";
+	}
+
+	public Registration getRegistration() {
+		return registration;
+	}
+
+	public void setRegistration(Registration registration) {
+		this.registration = registration;
 	}
 
 	
