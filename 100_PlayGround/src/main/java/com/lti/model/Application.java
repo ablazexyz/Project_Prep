@@ -33,7 +33,7 @@ public class Application {
 		super();
 	}
 
-	public Application( String propertyLocation, double loanAmt) {
+	public Application(String propertyLocation, double loanAmt) {
 		super();
 		this.propertyLocation = propertyLocation;
 		this.loanAmt = loanAmt;

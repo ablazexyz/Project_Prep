@@ -17,7 +17,7 @@ public class Account_Creation {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPA-PU");
 		EntityManager entityManager = factory.createEntityManager();
 
-		Loan loan1 = entityManager.find(Loan.class, 9);
+		Loan loan1 = entityManager.find(Loan.class, 12);
 
 		Account ac1 = new Account();
 
@@ -32,13 +32,13 @@ public class Account_Creation {
 		entityManager.getTransaction().commit();
 		
 		
-		Loan loan2 = entityManager.find(Loan.class, 10);
+		Loan loan2 = entityManager.find(Loan.class, 13);
 
 		List<Integer> cid_list = entityManager.createQuery("SELECT a.cust_id FROM Account a").getResultList();
 
-		if (cid_list.contains(1)) {
+		if (cid_list.contains(3)) {
 
-			ac1 = (Account) entityManager.createQuery("SELECT a FROM Account a WHERE a.cust_id = 1").getSingleResult();
+			ac1 = (Account) entityManager.createQuery("SELECT a FROM Account a WHERE a.cust_id = 3").getSingleResult();
 			double balance = ac1.getBalance();
 			balance += (loan2.getApplication().getLoanAmt());
 			ac1.setBalance(balance);

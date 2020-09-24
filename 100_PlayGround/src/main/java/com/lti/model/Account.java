@@ -26,8 +26,7 @@ public class Account {
 
 	private int cust_id;
 	
-	@OneToMany(mappedBy = "account" , cascade = CascadeType.PERSIST)
-
+	@OneToMany(mappedBy = "account")
 	private Set<Loan> loans;
 	
 

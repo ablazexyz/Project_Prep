@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.lti.model.Customer_Details;
 import com.lti.model.Registration;
 
 public class Registration_Interface {
