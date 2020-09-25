@@ -22,7 +22,36 @@ public class Customer_Details implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int customer_id;
 	
-	private int c_aadhar,c_sal;
+	@Column(name = "CUSTOMER_AADHAR")
+	private int aadhar;
+	
+	@Column(name = "CUSTOMER_SALARY")
+	private double salary;
+	
+	@Column(name = "CUSTOMER_PAN")
+	private String pan;
+	
+	@Column(name = "EMPLOYMENT_TYPE")
+	private String emptype;
+	
+	@Column(name = "CUSTOMER_ORG_TYPE")
+	private String orgtype;
+	
+	@Column(name = "EMPLOYER_NAME")
+	private String empname;
+	
+	@Column(name = "RETIREMENT_AGE")
+	private int retireage;
+	
+	@Column(name = "CUSTOMER_PAN_URL")
+	private String panURL;
+	
+	@Column(name = "CUSTOMER_VOTER_URL")
+	private String voterURL;
+	
+	@Column(name = "CUSTOMER_SALARY_URL")
+	private String salaryURL;
+	
 	
 	@OneToOne(mappedBy = "cdetails", cascade = CascadeType.ALL)
 	private Registration registration;
@@ -40,12 +69,14 @@ public class Customer_Details implements Serializable{
 		super();
 	}
 
-	public Customer_Details( int c_aadhar, int c_sal) {
-		super();
-		this.c_aadhar = c_aadhar;
-		this.c_sal = c_sal;
+	public Customer_Details(int aadhar, double salary) {
+		
+		this.aadhar = aadhar;
+		this.salary = salary;
+		
 	}
 
+	//Getters And Setters for Customer_Details Fields
 	public int getCustomer_id() {
 		return customer_id;
 	}
@@ -54,35 +85,93 @@ public class Customer_Details implements Serializable{
 		this.customer_id = customer_id;
 	}
 
-	public int getC_aadhar() {
-		return c_aadhar;
+	public int getAadhar() {
+		return aadhar;
 	}
 
-	public void setC_aadhar(int c_aadhar) {
-		this.c_aadhar = c_aadhar;
+	public void setAadhar(int aadhar) {
+		this.aadhar = aadhar;
 	}
 
-	public int getC_sal() {
-		return c_sal;
+	public double getSalary() {
+		return salary;
 	}
 
-	public void setC_sal(int c_sal) {
-		this.c_sal = c_sal;
+	public void setSalary(double salary) {
+		this.salary = salary;
 	}
 	
-	public Set<Application> getApplications() {
-		return applications;
+	public String getPan() {
+		return pan;
 	}
 
-	public void setApplications(Set<Application> applications) {
-		this.applications = applications;
+	public void setPan(String pan) {
+		this.pan = pan;
+	}
+
+	public String getEmptype() {
+		return emptype;
+	}
+
+	public void setEmptype(String emptype) {
+		this.emptype = emptype;
+	}
+
+	public int getRetireage() {
+		return retireage;
+	}
+
+	public void setRetireage(int retireage) {
+		this.retireage = retireage;
+	}
+
+	public String getOrgtype() {
+		return orgtype;
+	}
+
+	public void setOrgtype(String orgtype) {
+		this.orgtype = orgtype;
+	}
+
+	public String getEmpname() {
+		return empname;
+	}
+
+	public void setEmpname(String empname) {
+		this.empname = empname;
+	}
+
+	public String getPanURL() {
+		return panURL;
+	}
+
+	public void setPanURL(String panURL) {
+		this.panURL = panURL;
+	}
+
+	public String getVoterURL() {
+		return voterURL;
+	}
+
+	public void setVoterURL(String voterURL) {
+		this.voterURL = voterURL;
+	}
+
+	public String getSalaryURL() {
+		return salaryURL;
+	}
+
+	public void setSalaryURL(String salaryURL) {
+		this.salaryURL = salaryURL;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer_Details [customer_id=" + customer_id + ", c_aadhar=" + c_aadhar + ", c_sal=" + c_sal + "]";
+		return "Customer_Details [customer_id=" + customer_id + ", c_aadhar=" + aadhar + ", c_sal=" + getSalary() + "]";
 	}
 
+	
+	//Getters and Setters for Linking
 	public Registration getRegistration() {
 		return registration;
 	}
@@ -91,8 +180,14 @@ public class Customer_Details implements Serializable{
 		this.registration = registration;
 	}
 
-	
-	
+	public Set<Application> getApplications() {
+		return applications;
+	}
+
+	public void setApplications(Set<Application> applications) {
+		this.applications = applications;
+	}
+
 	
 	
 }

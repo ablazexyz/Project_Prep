@@ -1,6 +1,7 @@
 package com.lti.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,12 +16,28 @@ import javax.persistence.Table;
 public class Registration implements Serializable{
 	
 	@Id
-	@Column(name = "EMAIL_ID")
+	@Column(name = "CUSTOMER_EMAIL")
 	private String emailId;
 	
-	private String cname,cpass;
+	@Column(name = "CUSTOMER_NAME")
+	private String name;
 	
-	private int cnumber;
+	@Column(name = "PASSWORD")
+	private String password;
+	
+	@Column(name = "CUSTOMER_GENDER")
+	private String gender;
+	
+	@Column(name = "CUSTOMER_NATIONALITY")
+	private String nationality;
+	
+	@Column(name = "CUSTOMER_MOBILE")
+	private int mnumber;
+	
+	@Column(name = "CUSTOMER_DOB")
+	private Date dob;
+	
+	
 
 	public Registration() {
 		super();
@@ -33,12 +50,10 @@ public class Registration implements Serializable{
 	public Registration(String emailId, String cname, String cpass, int cnumber) {
 		super();
 		this.emailId = emailId;
-		this.cname = cname;
-		this.cpass = cpass;
-		this.cnumber = cnumber;
+		this.name = cname;
+		this.password = cpass;
+		this.mnumber = cnumber;
 	}
-
-
 
 	public String getEmailId() {
 		return emailId;
@@ -48,49 +63,68 @@ public class Registration implements Serializable{
 		this.emailId = emailId;
 	}
 
-	public String getCname() {
-		return cname;
+	public String getName() {
+		return name;
 	}
 
-	public void setCname(String cname) {
-		this.cname = cname;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getCpass() {
-		return cpass;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setCpass(String cpass) {
-		this.cpass = cpass;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public int getCnumber() {
-		return cnumber;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setCnumber(int cnumber) {
-		this.cnumber = cnumber;
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getNationality() {
+		return nationality;
+	}
+
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+
+	public int getMnumber() {
+		return mnumber;
+	}
+
+	public void setMnumber(int mnumber) {
+		this.mnumber = mnumber;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
 	}
 
 	public Customer_Details getCdetails() {
 		return cdetails;
 	}
 
-
-
 	public void setCdetails(Customer_Details cdetails) {
 		this.cdetails = cdetails;
 	}
-	
 
-	
 	@Override
 	public String toString() {
-		return "Registration [emailId=" + emailId + ", cname=" + cname + ", cpass=" + cpass + ", cnumber=" + cnumber+" ]";
+		return "Registration [emailId=" + emailId + ", name=" + name + ", password=" + password + ", gender=" + gender
+				+ ", nationality=" + nationality + ", mnumber=" + mnumber + ", dob=" + dob + ", cdetails=" + cdetails
+				+ "]";
 	}
-
-
-
-
+	
 	
 }

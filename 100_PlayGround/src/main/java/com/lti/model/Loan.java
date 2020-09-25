@@ -21,11 +21,11 @@ public class Loan {
 	private int LoanId;
 
 	@OneToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "Application_Id")
+	@JoinColumn(name = "APPLICATION_ID")
 	private Application application;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "Account_No")
+	@JoinColumn(name = "ACCOUNT_NO")
 	private Account account;
 	
 	public Loan() {

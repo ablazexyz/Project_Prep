@@ -3,6 +3,7 @@ package com.lti.model;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,10 +21,13 @@ public class Account {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "acc_seq")
+	@Column(name = "ACCOUNT_NUMBER")
 	private int AccountNo;
 	
+	@Column(name = "ACCOUNT_BALANCE")
 	private double balance;
 
+	@Column(name = "ACCOUNT_CUSTOMER_ID")
 	private int cust_id;
 	
 	@OneToMany(mappedBy = "account")
