@@ -9,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-@Entity(name = "APPLICATION_TBL")
+@Entity
+@Table(name = "APPLICATION_TBL")
 public class Application {
 	
 	@Id
@@ -53,7 +55,7 @@ public class Application {
 	
 
 	@ManyToOne
-	@JoinColumn(name = "Customer_ID")
+	@JoinColumn(name = "Application_Customer_ID")
 	private Customer_Details cdetails2;
 	
 	@OneToOne(mappedBy = "application", cascade = CascadeType.ALL)
@@ -179,11 +181,22 @@ public class Application {
 		return "Application [applicationId=" + applicationId + ", propertyLocation=" + propertyLocation + ", loanAmt="
 				+ loanAmt + "]";
 	}
+
 	
+	public String showApplication() {
+		return "Application [applicationId=" + applicationId + ", propertyLocation=" + propertyLocation
+				+ ", propertyName=" + propertyName + ", propertyAmt=" + propertyAmt + ", loanAmt=" + loanAmt + ", roi="
+				+ roi + ", tenure=" + tenure + ", loanStatus=" + loanStatus + ", loanRemarks=" + loanRemarks
+				+ ", loaURL=" + loaURL + ", nocURL=" + nocURL + ", agreementURL=" + agreementURL + ", cdetails2="
+				+ cdetails2 + ", loan=" + loan + "]";
+	}
+
 	//GETTER AND SETTER FOR MAPPING
 	public Customer_Details getCdetails2() {
 		return cdetails2;
 	}
+
+
 
 	public void setCdetails2(Customer_Details cdetails2) {
 		this.cdetails2 = cdetails2;

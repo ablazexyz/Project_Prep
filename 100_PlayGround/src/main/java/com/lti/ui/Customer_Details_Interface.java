@@ -15,9 +15,9 @@ public class Customer_Details_Interface {
 		EntityManager entityManager = factory.createEntityManager();
 		
 	
-		Customer_Details c1 = new Customer_Details(1234567, 5000);
-		Customer_Details c2 = new Customer_Details(2345678, 4500);
-		Customer_Details c3 = new Customer_Details(3456789, 3500);
+		Customer_Details c1 = new Customer_Details("1234567", 5000);
+		Customer_Details c2 = new Customer_Details("2345678", 4500);
+		Customer_Details c3 = new Customer_Details("3456789", 3500);
 
 		Registration reg = entityManager.find(Registration.class, "aba@gmail.com");
 		Registration reg2 = entityManager.find(Registration.class, "abc@gmail.com");
@@ -29,9 +29,9 @@ public class Customer_Details_Interface {
 
 		entityManager.getTransaction().begin();
 
-		entityManager.persist(reg);
-		entityManager.persist(reg2);
-		entityManager.persist(reg3);
+		entityManager.merge(reg);
+		entityManager.merge(reg2);
+		entityManager.merge(reg3);
 
 		entityManager.getTransaction().commit();
 		

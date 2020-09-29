@@ -49,9 +49,10 @@ public class ApplicationInterface {
 		
 		
 		entityManager.getTransaction().begin();
-		c1 = entityManager.merge(c1);
-		c2 = entityManager.merge(c2);
-		c3 = entityManager.merge(c3);
+		entityManager.persist(appl1);
+		entityManager.persist(appl2);
+		entityManager.persist(appl3);
+		entityManager.persist(appl4);
 		entityManager.getTransaction().commit();
 
 

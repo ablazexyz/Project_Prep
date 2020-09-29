@@ -23,7 +23,7 @@ public class Customer_Details implements Serializable{
 	private int customer_id;
 	
 	@Column(name = "CUSTOMER_AADHAR")
-	private int aadhar;
+	private String aadhar;
 	
 	@Column(name = "CUSTOMER_SALARY")
 	private double salary;
@@ -34,7 +34,7 @@ public class Customer_Details implements Serializable{
 	@Column(name = "EMPLOYMENT_TYPE")
 	private String emptype;
 	
-	@Column(name = "CUSTOMER_ORG_TYPE")
+	@Column(name = "EMPLOYMENT_ORG_TYPE")
 	private String orgtype;
 	
 	@Column(name = "EMPLOYER_NAME")
@@ -68,12 +68,13 @@ public class Customer_Details implements Serializable{
 	public Customer_Details() {
 		super();
 	}
+	
+	
 
-	public Customer_Details(int aadhar, double salary) {
-		
+	public Customer_Details(String aadhar, double salary) {
+		super();
 		this.aadhar = aadhar;
 		this.salary = salary;
-		
 	}
 
 	//Getters And Setters for Customer_Details Fields
@@ -85,11 +86,12 @@ public class Customer_Details implements Serializable{
 		this.customer_id = customer_id;
 	}
 
-	public int getAadhar() {
+	
+	public String getAadhar() {
 		return aadhar;
 	}
 
-	public void setAadhar(int aadhar) {
+	public void setAadhar(String aadhar) {
 		this.aadhar = aadhar;
 	}
 
@@ -165,12 +167,14 @@ public class Customer_Details implements Serializable{
 		this.salaryURL = salaryURL;
 	}
 
-	@Override
-	public String toString() {
-		return "Customer_Details [customer_id=" + customer_id + ", c_aadhar=" + aadhar + ", c_sal=" + getSalary() + "]";
-	}
+	
 
 	
+	@Override
+	public String toString() {
+		return "Customer_Details [customer_id=" + customer_id + ", aadhar=" + aadhar + ", salary=" + salary + "]";
+	}
+
 	//Getters and Setters for Linking
 	public Registration getRegistration() {
 		return registration;

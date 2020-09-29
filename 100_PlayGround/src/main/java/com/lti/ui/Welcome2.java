@@ -17,7 +17,7 @@ import com.lti.model.Loan;
 import com.lti.model.Registration;
 import com.lti.service.CustomerServiceImpl;
 
-public class Welcome {
+public class Welcome2 {
 
 	public static void main(String[] args) {
 
@@ -187,32 +187,23 @@ public class Welcome {
 				*/
 				
 				cd = service.findCustomerDetailsbyEmail(email);
-				System.out.println("1. ");
-				System.out.println(cd);
+				
 
 				appl.setCdetails2(cd);
-				System.out.println("2. ");
-				System.out.println(cd);
-
+				
 				if (cd.getApplications().isEmpty()) {
 
-					System.out.println("3. ");
-					System.out.println(cd);
+					
 
 					cd.setApplications(new HashSet<Application>());
-					System.out.println("4. ");
-					System.out.println(cd);
+					
 				}
+				
 				cd.addApplications(appl);
-				System.out.println("5. ");
-				System.out.println(cd);
-
+				
+				
 				entityManager.getTransaction().begin();
 				entityManager.persist(appl);
-
-				System.out.println("6. ");
-				System.out.println(cd);
-
 				entityManager.getTransaction().commit();
 
 			}
@@ -332,10 +323,6 @@ public class Welcome {
 				Loan loan = new Loan();
 				loan.setApplication(appl);
 
-				entityManager.getTransaction().begin();
-				entityManager.persist(loan);
-				entityManager.getTransaction().commit();
-
 				List<Integer> cid_list = entityManager.createQuery("SELECT a.cust_id FROM Account a").getResultList();
 
 				Account ac1;
@@ -367,7 +354,7 @@ public class Welcome {
 				}
 
 				entityManager.getTransaction().begin();
-				entityManager.persist(ac1);
+				entityManager.persist(loan);
 				entityManager.getTransaction().commit();
 			}
 		}

@@ -13,10 +13,10 @@ public class Registration_Interface {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPA-PU");
 		EntityManager entityManager = factory.createEntityManager();
 		
-	
-		Registration reg = new Registration("aba@gmail.com","AB","abc123",9876);
-		Registration reg2 = new Registration("abc@gmail.com","AC","abc123",4567);
-		Registration reg3 = new Registration("xyz@gmail.com","XY","xyz123",1234);
+		
+		Registration reg = new Registration("aba@gmail.com","AB","abc123","9876");
+		Registration reg2 = new Registration("abc@gmail.com","AC","abc123","4567");
+		Registration reg3 = new Registration("xyz@gmail.com","XY","xyz123","1234");
 		
 		entityManager.getTransaction().begin();
 

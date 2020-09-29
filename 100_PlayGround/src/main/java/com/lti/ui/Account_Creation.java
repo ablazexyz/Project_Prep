@@ -17,7 +17,7 @@ public class Account_Creation {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPA-PU");
 		EntityManager entityManager = factory.createEntityManager();
 
-		Loan loan1 = entityManager.find(Loan.class, 12);
+		Loan loan1 = entityManager.find(Loan.class, 10);
 
 		Account ac1 = new Account();
 
@@ -32,7 +32,7 @@ public class Account_Creation {
 		entityManager.getTransaction().commit();
 		
 		
-		Loan loan2 = entityManager.find(Loan.class, 13);
+		Loan loan2 = entityManager.find(Loan.class, 11);
 
 		List<Integer> cid_list = entityManager.createQuery("SELECT a.cust_id FROM Account a").getResultList();
 

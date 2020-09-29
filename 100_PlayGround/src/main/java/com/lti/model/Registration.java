@@ -32,7 +32,7 @@ public class Registration implements Serializable{
 	private String nationality;
 	
 	@Column(name = "CUSTOMER_MOBILE")
-	private int mnumber;
+	private String mnumber;
 	
 	@Column(name = "CUSTOMER_DOB")
 	private Date dob;
@@ -43,11 +43,11 @@ public class Registration implements Serializable{
 		super();
 	}
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "customer_id")
+	@OneToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "Registration_Customer_Id")
 	private Customer_Details cdetails;
 
-	public Registration(String emailId, String cname, String cpass, int cnumber) {
+	public Registration(String emailId, String cname, String cpass, String cnumber) {
 		super();
 		this.emailId = emailId;
 		this.name = cname;
@@ -95,11 +95,11 @@ public class Registration implements Serializable{
 		this.nationality = nationality;
 	}
 
-	public int getMnumber() {
+	public String getMnumber() {
 		return mnumber;
 	}
 
-	public void setMnumber(int mnumber) {
+	public void setMnumber(String mnumber) {
 		this.mnumber = mnumber;
 	}
 
